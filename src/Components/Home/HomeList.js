@@ -1,7 +1,7 @@
 import HomeItem from '../Home/HomeItem'
 import '../../css/Home.css'
 
-export default function Home() {
+export default function HomeList() {
     return (
         <div className="home">
             <div className="home_container">
