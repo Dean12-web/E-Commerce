@@ -1,8 +1,10 @@
 import CheckoutProduct from "./CheckoutProduct";
 import Subtotal from "./Subtotal";
 import '../../css/CheckoutList.css'
-
+import {useStateValue} from '../../StateProvider'
 export default function CheckoutList() {
+    const [{basket}, dispatch] = useStateValue()
+    console.log(dispatch)
     return (
         <div className="checkout">
             <div className="checkout_left">
@@ -11,8 +13,16 @@ export default function CheckoutList() {
                     <h2 className="checkout_title">
                         Your Shopping Basket
                     </h2>
-                    <CheckoutProduct/>
-                    <CheckoutProduct/>
+                    {basket.map(item =>(
+                        <CheckoutProduct
+                            key={item.id}
+                            id = {item.id}
+                            title = {item.title}
+                            image= {item.image}
+                            price = {item.price}
+                            rating = {item.rating}                            
+                        />
+                    ))}
                 </div>
             </div>
             <div className="checkout_right">
