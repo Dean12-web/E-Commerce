@@ -3,7 +3,10 @@ import SearchIcon from '@mui/icons-material/Search';
 import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 import { Link } from 'react-router-dom';
 import '../css/Header.css'
+import { useStateValue } from '../StateProvider';
 export default function Header() {
+    const [{basket}, dispatch] = useStateValue()
+    console.log(basket)
     return (
         <div className="home_header">
             <Link to="/" style={{ textDecoration: "none" }}>
@@ -28,7 +31,9 @@ export default function Header() {
                 <Link to="/checkout" style={{ textDecoration: "none" }}>
                     <div className="nav_items">
                         <ShoppingBasketIcon className='nav_itemBasket' />
-                        <span className="nav_itemLineTwo nav_basketCount">0</span>
+                        <span className="nav_itemLineTwo nav_basketCount">
+                            {basket.length}
+                        </span>
                     </div>
                 </Link>
             </div>
