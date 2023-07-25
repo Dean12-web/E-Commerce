@@ -8,11 +8,6 @@ import { useStateValue } from '../StateProvider';
 export default function Header() {
     const [{ basket }, dispatch] = useStateValue()
     const user = auth.currentUser;
-    if (user === null) {
-        console.log("No user")
-    } else {
-        console.log(user.email)
-    }
     return (
         <div className="home_header">
             <Link to="/" style={{ textDecoration: "none" }}>
