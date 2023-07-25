@@ -4,7 +4,6 @@ import '../../css/CheckoutList.css'
 import {useStateValue} from '../../StateProvider'
 export default function CheckoutList() {
     const [{basket}, dispatch] = useStateValue()
-    console.log(dispatch)
     return (
         <div className="checkout">
             <div className="checkout_left">
